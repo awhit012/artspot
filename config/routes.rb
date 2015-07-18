@@ -1,4 +1,8 @@
 Artspot::Application.routes.draw do
+  # match "home", :to => "posts#index"
+  root :to => "posts#index"
+  resources :posts
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
