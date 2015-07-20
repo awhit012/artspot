@@ -55,4 +55,3 @@ end
 
 
 
-{id: post_id}.to_json
