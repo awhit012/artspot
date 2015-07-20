@@ -51,3 +51,8 @@ class PostsController < ApplicationController
   end
 
 end
+
+
+
+
+{id: post_id}.to_json
