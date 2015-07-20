@@ -1,5 +1,8 @@
 Artspot::Application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   # match "home", :to => "posts#index"
   root :to => "posts#index"
   resources :posts
