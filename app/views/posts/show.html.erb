@@ -2,7 +2,7 @@
     <div class="post">
       <div class="post-head">
         <div class="name">
-          Alex White
+          <%= @post.user.user_name %>
         </div>
       </div>
       <div class="image center-block">
@@ -13,11 +13,12 @@
       </p>
     </div>
 </div>
-
-<div class="text-center edit-links">
-  <%= link_to "Cancel", posts_path %>
-  |
-  <%= link_to "Edit Post", edit_post_path(@post) %>
-</div>
+<% if @post.user.user_name == current_user.user_name %>
+  <div class="text-center edit-links">
+    <%= link_to "Cancel", posts_path %>
+    |
+    <%= link_to "Edit Post", edit_post_path(@post) %>
+  </div>
+<% end %>
 
 
