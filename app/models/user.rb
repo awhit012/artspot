@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :posts, dependent: :destroy
   validates :user_name, presence: true, length: { minimum: 4, maximum: 16 }
   attr_accessible :user_name, :email, :password, :password_confirmation
   # Include default devise modules. Others available are:
@@ -9,5 +10,4 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
 end
