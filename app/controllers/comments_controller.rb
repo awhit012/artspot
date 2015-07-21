@@ -4,12 +4,15 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
+
     if @comment.save
-      flash[:success] = "Your comment has been created!"
-      redirect_to :back
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js { render :layout => false }
+      end
     else
-      flash.now[:alert] = "Your new comment couldn't be created!  Please check the form."
-      render :new
+      flash[:alert] = "Check the comment form, something went wrong."
+      render root_path
     end
   end
 
